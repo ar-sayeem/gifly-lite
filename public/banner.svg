@@ -1,0 +1,93 @@
+<svg width="100%" viewBox="0 0 1040 80" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Gifly Lite Banner</title>
+  <desc>Animated banner with sweeping gradient, GL logo, title, tagline and dancing dots</desc>
+
+  <defs>
+    <linearGradient id="bg-sweep" x1="0%" y1="0%" x2="200%" y2="0%" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00cfff"/>
+      <stop offset="30%" stop-color="#00e87a"/>
+      <stop offset="60%" stop-color="#00ff44"/>
+      <stop offset="100%" stop-color="#00cfff"/>
+      <animateTransform attributeName="gradientTransform" type="translate" values="0 0; -1040 0; 0 0" dur="4s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="lg-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00ff87"/><stop offset="100%" stop-color="#00c96a"/>
+    </linearGradient>
+    <linearGradient id="lg-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#0099cc"/>
+    </linearGradient>
+    <linearGradient id="lg-yellow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffe033"/><stop offset="100%" stop-color="#ffb800"/>
+    </linearGradient>
+    <linearGradient id="lg-purple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/><stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="lg-red" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff6b6b"/><stop offset="100%" stop-color="#e63946"/>
+    </linearGradient>
+    <linearGradient id="lg-coral" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7b7b"/><stop offset="100%" stop-color="#cc3333"/>
+    </linearGradient>
+    <radialGradient id="lg-center" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a2e"/><stop offset="100%" stop-color="#0a0a12"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="text-shadow">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="1040" height="80" fill="url(#bg-sweep)"/>
+
+  <g transform="translate(180, 8) scale(0.18)">
+    <rect x="0" y="0" width="158" height="44" rx="8" fill="url(#lg-yellow)"/>
+    <rect x="0" y="0" width="44" height="354" rx="8" fill="url(#lg-green)"/>
+    <rect x="0" y="310" width="354" height="44" rx="8" fill="url(#lg-cyan)"/>
+    <rect x="310" y="166" width="44" height="188" rx="8" fill="url(#lg-purple)"/>
+    <rect x="166" y="166" width="188" height="44" rx="8" fill="url(#lg-red)"/>
+    <rect x="44" y="44" width="266" height="266" rx="6" fill="url(#lg-center)"/>
+    <rect x="210" y="0" width="44" height="166" rx="8" fill="url(#lg-coral)"/>
+    <rect x="210" y="122" width="144" height="44" rx="8" fill="url(#lg-coral)"/>
+    <circle cx="177" cy="177" r="72" fill="#111122"/>
+    <circle cx="177" cy="177" r="72" fill="none" stroke="#00ff87" stroke-width="3" opacity="0.5"/>
+    <polygon points="160,149 160,205 214,177" fill="url(#lg-green)" filter="url(#glow)"/>
+    <polygon points="160,149 160,170 184,160" fill="#fff" opacity="0.18"/>
+  </g>
+
+  <text x="250" y="48"
+    font-family="'Arial Black', Impact, sans-serif"
+    font-size="36" font-weight="900" letter-spacing="3"
+    fill="#ffffff" filter="url(#text-shadow)">GIFLY-LITE</text>
+
+  <rect x="250" y="55" width="290" height="2.5" rx="2" fill="#fff" opacity="0.25"/>
+
+  <text x="560" y="38"
+    font-family="Arial, sans-serif"
+    font-size="13" font-weight="600" letter-spacing="1"
+    fill="#ffffff" opacity="0.9"
+    filter="url(#text-shadow)">browse · search · share</text>
+
+  <circle r="5" fill="#ffe033">
+    <animate attributeName="cx" values="560;572;584;572;560" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="cy" values="52;46;52;58;52" dur="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="r" values="5;3.5;5;3.5;5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle r="5" fill="#ff5b5b">
+    <animate attributeName="cx" values="572;584;560;584;572" dur="2s" begin="0.66s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="cy" values="52;58;52;46;52" dur="2s" begin="0.66s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="r" values="5;3.5;5;3.5;5" dur="2s" begin="0.66s" repeatCount="indefinite"/>
+  </circle>
+
+  <circle r="5" fill="#a855f7">
+    <animate attributeName="cx" values="584;560;572;560;584" dur="2s" begin="1.33s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="cy" values="52;58;46;58;52" dur="2s" begin="1.33s" repeatCount="indefinite" calcMode="spline" keySplines="0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1;0.4 0 0.6 1"/>
+    <animate attributeName="r" values="5;3.5;5;3.5;5" dur="2s" begin="1.33s" repeatCount="indefinite"/>
+  </circle>
+
+  <rect x="0" y="0" width="1040" height="2" fill="#fff" opacity="0.2"/>
+  <rect x="0" y="78" width="1040" height="2" fill="#000" opacity="0.1"/>
+</svg>
