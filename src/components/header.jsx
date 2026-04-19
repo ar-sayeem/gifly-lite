@@ -2,26 +2,31 @@ import React, { useState } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
+import { GifState } from "../context/gif-context";
 
 const Header = () => {
   const [categories, setCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
+
+  const { gf } = GifState();
 
   return (
     <nav className="relative">
       <div className="flex gap-4 justify-between items-center mb-2">
         <Link to="/" className="flex items-center gap-3">
           {/* Logo and title now share the same height via h-14 */}
-          <img src="/logo.svg" className="h-14 w-14 object-contain" alt="Gifly-lite Logo" />
+          <img
+            src="/logo.svg"
+            className="h-14 w-14 object-contain"
+            alt="Gifly-lite Logo"
+          />
           <h1 className="text-5xl font-bold tracking-tight leading-none cursor-pointer">
             Gifly Lite
           </h1>
         </Link>
 
         <div className="font-bold text-md flex gap-2 items-center">
-          <Link
-            className="px-4 py-1 border-b-4 hidden lg:block hover-gradient"
-          >
+          <Link className="px-4 py-1 border-b-4 hidden lg:block hover-gradient">
             Reactions
           </Link>
 
