@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HiDotsVertical } from "react-icons/hi";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { Link } from "react-router-dom";
@@ -8,13 +8,21 @@ const Header = () => {
   const [categories, setCategories] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
 
-  const { gf } = GifState();
+  const { gf, filter, setFilter, favorites } = GifState();
+
+  const fetchGifCategories = async () => {
+    const { data } = await gf.categories();
+    setCategories(data);
+  };
+
+  useEffect(() => {
+    fetchGifCategories();
+  }, []);
 
   return (
     <nav className="relative">
       <div className="flex gap-4 justify-between items-center mb-2">
         <Link to="/" className="flex items-center gap-3">
-          {/* Logo and title now share the same height via h-14 */}
           <img
             src="/logo.svg"
             className="h-14 w-14 object-contain"
@@ -26,11 +34,24 @@ const Header = () => {
         </Link>
 
         <div className="font-bold text-md flex gap-2 items-center">
-          <Link className="px-4 py-1 border-b-4 hidden lg:block hover-gradient">
-            Reactions
-          </Link>
+          {/* Render categories*/}
+          {categories?.slice(0, 5)?.map((category) => {
+            return (
+              <Link
+                key={category.name}
+                to={`/${category.name_encoded}`}
+                className="px-4 py-1 border-b-4 hidden lg:block hover-gradient"
+              >
+                {category.name}
+              </Link>
+            );
+          })}
 
-          <button onClick={() => setShowCategories(!showCategories)}>
+          <button
+            onClick={() => {
+              setShowCategories(!showCategories);
+            }}
+          >
             <HiDotsVertical
               size={35}
               className={`py-0.5 border-b-4 hidden lg:block hover-gradient ${
@@ -39,9 +60,11 @@ const Header = () => {
             />
           </button>
 
-          <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
-            <Link to="/favorites">Favorites GIFs</Link>
-          </div>
+          {favorites.length > 0 && (
+            <div className="h-9 bg-gray-700 pt-1.5 px-6 cursor-pointer rounded">
+              <Link to="/favorites">Favorites GIFs</Link>
+            </div>
+          )}
 
           <button>
             <HiMiniBars3BottomRight
@@ -53,11 +76,21 @@ const Header = () => {
       </div>
 
       {showCategories && (
-        <div className="absolute left-0 right-0 top-full px-10 pt-6 pb-9 gradient z-20">
-          <span>Categories</span>
-          <hr />
-          <div>
-            <Link className="font-bold">Reactions</Link>
+        <div className="absolute right-0 top-14 px-10 pt-6 pb-9 w-full gradient z-20">
+          <span className="text-3xl font-extrabold">Categories</span>
+          <hr className="bg-grey-100 opacity-50 my-5" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
+            {categories?.map((category) => {
+              return (
+                <Link
+                  key={category.name}
+                  to={`/${category.name_encoded}`}
+                  className="font-bold"
+                >
+                  {category.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
       )}
